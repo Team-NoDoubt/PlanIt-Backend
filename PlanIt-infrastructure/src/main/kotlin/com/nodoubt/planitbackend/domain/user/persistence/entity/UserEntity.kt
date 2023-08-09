@@ -3,9 +3,7 @@ package com.nodoubt.planitbackend.domain.user.persistence.entity
 import com.nodoubt.planitbackend.domain.user.domain.UserRole
 import com.nodoubt.planitbackend.global.entity.BaseIDEntity
 import org.jetbrains.annotations.NotNull
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.Table
+import javax.persistence.*
 
 @Entity
 @Table(name = "tbl_user")
@@ -34,6 +32,7 @@ class UserEntity (
     @field:NotNull
     var name = name
 
+    @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "VARCHAR(7)")
     @field:NotNull
     var role = role
