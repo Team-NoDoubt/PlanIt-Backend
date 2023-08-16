@@ -24,16 +24,20 @@ class UserEntity (
     @Column(columnDefinition = "VARCHAR(15)")
     @field:NotNull
     var accountId = accountId
+        protected set
 
     @field:NotNull
     var password = password
+        protected set
 
     @Column(columnDefinition = "VARCHAR(5)")
     @field:NotNull
     var name = name
+        protected set
 
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "VARCHAR(7)")
     @field:NotNull
     var role = role
+        protected set
 }

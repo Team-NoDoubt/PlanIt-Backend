@@ -27,12 +27,15 @@ class ChangeMasterEntity(
 
     @field:NotNull
     var reason = reason
+        protected set
 
     @Enumerated(EnumType.STRING)
     @field:NotNull
     @Column(columnDefinition = "VARCHAR(10)")
     var confirmed = confirmed
+        protected set
 
     @field:NotNull
     var date = date
+        protected set
 }

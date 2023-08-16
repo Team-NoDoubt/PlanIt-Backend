@@ -37,31 +37,39 @@ class DateTimetableEntity(
     @Column(columnDefinition = "VARCHAR(4)")
     @field:NotNull
     var year = year
+        protected set
 
     @Column(columnDefinition = "VARCHAR(1)")
     @field:NotNull
     var semester = semester
+        protected set
 
     @field:NotNull
     var date = date
+        protected set
 
     @Column(columnDefinition = "VARCHAR(1)")
     @field:NotNull
     var grade = grade
+        protected set
 
     @Column(columnDefinition = "VARCHAR(1)")
     @field:NotNull
     var classNum = classNum
+        protected set
 
     @Column(columnDefinition = "VARCHAR(1)")
     @field:NotNull
     var period = period
+        protected set
 
     @Column(columnDefinition = "VARCHAR(1)")
     @field:NotNull
     var weekOfDate = weekOfDate
+        protected set
 
     @Column(columnDefinition = "VARCHAR(30)")
     @field:NotNull
     var subject = subject
+        protected set
 }
