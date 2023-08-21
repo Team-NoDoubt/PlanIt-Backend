@@ -8,4 +8,6 @@ enum class UserErrorCode(
 ) : ErrorProperty {
 
     PASSWORD_MIS_MATCH(400, "Password Mis Match"),
+
+    REFRESH_TOKEN_NOT_FOUND(404, "Refresh Token Not Found")
 }

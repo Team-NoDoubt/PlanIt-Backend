@@ -1,4 +1,4 @@
 package com.nodoubt.planitbackend.domain.user.spi
 
-interface RefreshTokenPort : CommandRefreshPort {
+interface RefreshTokenPort : CommandRefreshPort, QueryRefreshTokenPort {
 }
