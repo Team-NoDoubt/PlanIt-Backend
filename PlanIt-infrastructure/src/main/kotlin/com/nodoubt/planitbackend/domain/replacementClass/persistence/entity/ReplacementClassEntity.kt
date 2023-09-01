@@ -22,11 +22,11 @@ class ReplacementClassEntity (
     reasonRejected: String,
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "dataTimetable_id", nullable = false)
+    @JoinColumn(name = "requestTimetable_id", nullable = false)
     val requestTimetableEntity: DateTimetableEntity,
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "dataTimetable_id", nullable = false)
+    @JoinColumn(name = "changeTimetable_id", nullable = false)
     val changeTimetableEntity: DateTimetableEntity,
 
     @OneToOne(fetch = FetchType.LAZY)
