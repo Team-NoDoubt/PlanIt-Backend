@@ -4,6 +4,8 @@ import java.time.LocalDateTime
 
 class SignInResponse(
 
+    val name: String,
+
     val accessToken: String,
 
     val refreshToken: String,

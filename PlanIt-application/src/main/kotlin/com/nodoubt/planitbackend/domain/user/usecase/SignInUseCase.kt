@@ -38,6 +38,7 @@ open class SignInUseCase(
         )
 
         return SignInResponse(
+            name = user.name,
             accessToken = tokenResponse.accessToken,
             refreshToken = tokenResponse.refreshToken,
             accessTokenExp = tokenResponse.accessTokenExp
