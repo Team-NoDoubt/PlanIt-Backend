@@ -11,6 +11,8 @@ class ReinforcementClass (
 
     val status: Status,
 
+    val reinforcementPlan: String,
+
     val reasonRejected: String,
 
     val dateTimetableId: Long,

@@ -24,6 +24,7 @@ class ReinforcementClassMapper (
             id = it.id,
             changeMasterId = it.changeMasterEntity.id,
             status = it.status,
+            reinforcementPlan = it.reinforcementPlan,
             reasonRejected = it.reasonRejected,
             dateTimetableId = it.dateTimetableEntity.id,
             teacherId = it.teacherEntity.id
@@ -45,6 +46,7 @@ class ReinforcementClassMapper (
             id = domain.id,
             changeMasterEntity = changeMasterEntity,
             status = domain.status,
+            reinforcementPlan = domain.reinforcementPlan,
             reasonRejected = domain.reasonRejected,
             dateTimetableEntity = dateTimetableEntity,
             teacherEntity = teacherEntity

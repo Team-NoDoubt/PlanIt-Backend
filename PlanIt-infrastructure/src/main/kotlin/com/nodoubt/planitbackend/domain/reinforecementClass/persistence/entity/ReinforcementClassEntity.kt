@@ -20,6 +20,8 @@ class ReinforcementClassEntity (
 
     status: Status,
 
+    reinforcementPlan: String,
+
     reasonRejected: String,
 
     @OneToOne(fetch = FetchType.LAZY)
@@ -36,6 +38,11 @@ class ReinforcementClassEntity (
     @Column(columnDefinition = "VARCHAR(10)")
     @field:NotNull
     var status = status
+        protected set
+
+    @Column(columnDefinition = "VARCHAR(20)")
+    @field:NotNull
+    var reinforcementPlan = reinforcementPlan
         protected set
 
     @Column(columnDefinition = "VARCHAR(20)")
