@@ -3,7 +3,7 @@ package com.nodoubt.planitbackend.domain.dateTimetable.persistence.entity
 import com.nodoubt.planitbackend.domain.teacher.persistence.entity.TeacherEntity
 import com.nodoubt.planitbackend.global.entity.BaseIDEntity
 import org.jetbrains.annotations.NotNull
-import java.sql.Date
+import java.time.LocalDate
 import javax.persistence.*
 
 @Entity
@@ -16,7 +16,7 @@ class DateTimetableEntity(
 
     semester: Int,
 
-    date: Date,
+    date: LocalDate,
 
     grade: Int,
 

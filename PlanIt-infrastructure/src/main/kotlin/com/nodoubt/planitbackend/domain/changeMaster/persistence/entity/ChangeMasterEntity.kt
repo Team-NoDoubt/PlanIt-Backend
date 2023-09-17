@@ -4,7 +4,7 @@ import com.nodoubt.planitbackend.domain.changeMaster.domain.Confirmed
 import com.nodoubt.planitbackend.domain.teacher.persistence.entity.TeacherEntity
 import com.nodoubt.planitbackend.global.entity.BaseIDEntity
 import org.jetbrains.annotations.NotNull
-import java.sql.Date
+import java.time.LocalDate
 import javax.persistence.*
 
 @Entity
@@ -17,7 +17,7 @@ class ChangeMasterEntity(
 
     confirmed: Confirmed,
 
-    date: Date,
+    date: LocalDate,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "teacher_id", nullable = false)

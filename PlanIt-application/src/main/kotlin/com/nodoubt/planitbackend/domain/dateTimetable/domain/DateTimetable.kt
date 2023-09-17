@@ -1,7 +1,7 @@
 package com.nodoubt.planitbackend.domain.dateTimetable.domain
 
 import com.nodoubt.planitbackend.annotation.Aggregate
-import java.sql.Date
+import java.time.LocalDate
 
 @Aggregate
 class DateTimetable(
@@ -12,7 +12,7 @@ class DateTimetable(
 
     val semester: Int,
 
-    val date: Date,
+    val date: LocalDate,
 
     val grade: Int,
 
