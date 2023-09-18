@@ -11,7 +11,7 @@ class ReplacementClass (
 
     val status: Status,
 
-    val reasonRejected: String,
+    val reasonRejected: String? = null,
 
     val requestTimetableId: Long,
 

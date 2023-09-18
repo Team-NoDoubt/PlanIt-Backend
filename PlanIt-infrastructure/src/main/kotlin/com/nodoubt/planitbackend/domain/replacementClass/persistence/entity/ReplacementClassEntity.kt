@@ -42,7 +42,6 @@ class ReplacementClassEntity (
         protected set
 
     @Column(columnDefinition = "VARCHAR(20)")
-    @field:NotNull
     var reasonRejected = reasonRejected
         protected set
 }
