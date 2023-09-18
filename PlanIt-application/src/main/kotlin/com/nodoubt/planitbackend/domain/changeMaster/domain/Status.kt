@@ -1,6 +1,7 @@
 package com.nodoubt.planitbackend.domain.changeMaster.domain
 
-enum class Confirmed {
+enum class Status {
     REQUESTING,
-    ACCEPT
+    ACCEPT,
+    REJECTED
 }

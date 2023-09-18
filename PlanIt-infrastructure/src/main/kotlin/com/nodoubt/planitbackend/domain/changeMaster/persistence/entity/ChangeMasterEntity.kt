@@ -1,6 +1,6 @@
 package com.nodoubt.planitbackend.domain.changeMaster.persistence.entity
 
-import com.nodoubt.planitbackend.domain.changeMaster.domain.Confirmed
+import com.nodoubt.planitbackend.domain.changeMaster.domain.Status
 import com.nodoubt.planitbackend.domain.teacher.persistence.entity.TeacherEntity
 import com.nodoubt.planitbackend.global.entity.BaseIDEntity
 import org.jetbrains.annotations.NotNull
@@ -15,7 +15,7 @@ class ChangeMasterEntity(
 
     reason: String,
 
-    confirmed: Confirmed,
+    status: Status,
 
     date: LocalDate,
 
@@ -32,7 +32,7 @@ class ChangeMasterEntity(
     @Enumerated(EnumType.STRING)
     @field:NotNull
     @Column(columnDefinition = "VARCHAR(10)")
-    var confirmed = confirmed
+    var status = status
         protected set
 
     @field:NotNull

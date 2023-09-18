@@ -1,7 +1,7 @@
 package com.nodoubt.planitbackend.domain.replacementClass.domain
 
 import com.nodoubt.planitbackend.annotation.Aggregate
-import com.nodoubt.planitbackend.domain.reinforcementClass.domain.Status
+import com.nodoubt.planitbackend.domain.changeMaster.domain.Status
 
 @Aggregate
 class ReplacementClass (

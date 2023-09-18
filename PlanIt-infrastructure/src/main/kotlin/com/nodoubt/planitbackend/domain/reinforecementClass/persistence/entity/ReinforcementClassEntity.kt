@@ -2,7 +2,7 @@ package com.nodoubt.planitbackend.domain.reinforecementClass.persistence.entity
 
 import com.nodoubt.planitbackend.domain.changeMaster.persistence.entity.ChangeMasterEntity
 import com.nodoubt.planitbackend.domain.dateTimetable.persistence.entity.DateTimetableEntity
-import com.nodoubt.planitbackend.domain.reinforcementClass.domain.Status
+import com.nodoubt.planitbackend.domain.changeMaster.domain.Status
 import com.nodoubt.planitbackend.domain.teacher.persistence.entity.TeacherEntity
 import com.nodoubt.planitbackend.global.entity.BaseIDEntity
 import org.jetbrains.annotations.NotNull

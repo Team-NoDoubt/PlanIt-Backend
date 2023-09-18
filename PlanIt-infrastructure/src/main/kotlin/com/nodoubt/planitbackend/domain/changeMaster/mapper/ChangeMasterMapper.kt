@@ -17,7 +17,7 @@ class ChangeMasterMapper (
         ChangeMaster(
             id = it.id,
             reason = it.reason,
-            confirmed = it.confirmed,
+            status = it.status,
             date = it.date,
             teacherId = it.teacherEntity.id
         )
@@ -30,7 +30,7 @@ class ChangeMasterMapper (
         ChangeMasterEntity(
             id = it.id,
             reason = it.reason,
-            confirmed = it.confirmed,
+            status = it.status,
             date = it.date,
             teacherEntity = teacherEntity
         )
