@@ -5,7 +5,6 @@ import com.nodoubt.planitbackend.domain.dateTimetable.api.QueryDateTimetableList
 import com.nodoubt.planitbackend.domain.dateTimetable.api.dto.response.QueryDateTimetableListResponse
 import com.nodoubt.planitbackend.domain.dateTimetable.api.dto.response.TimetableResponse
 import com.nodoubt.planitbackend.domain.dateTimetable.spi.QueryDateTimetablePort
-import java.sql.Date
 import java.time.LocalDate
 
 @UseCase
@@ -17,7 +16,7 @@ open class QueryDateTimetableUseCase (
         val monday = LocalDate.now().with(java.time.DayOfWeek.MONDAY)
         val friday = monday.plusDays(4)
 
-        val timetableList = queryDateTimetablePort.queryDateTimetableList(grade, classNum, Date.valueOf(monday), Date.valueOf(friday))
+        val timetableList = queryDateTimetablePort.queryDateTimetableList(grade, classNum, monday, friday)
 
         return QueryDateTimetableListResponse(
             timetableList = timetableList

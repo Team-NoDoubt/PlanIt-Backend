@@ -22,7 +22,7 @@ class ReinforcementClassEntity (
 
     reinforcementPlan: String,
 
-    reasonRejected: String,
+    reasonRejected: String?,
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "dataTimetable_id", nullable = false)

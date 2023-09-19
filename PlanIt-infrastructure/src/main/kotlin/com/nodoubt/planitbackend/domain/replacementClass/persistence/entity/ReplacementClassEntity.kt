@@ -19,7 +19,7 @@ class ReplacementClassEntity (
 
     status: Status,
 
-    reasonRejected: String,
+    reasonRejected: String?,
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "requestTimetable_id", nullable = false)

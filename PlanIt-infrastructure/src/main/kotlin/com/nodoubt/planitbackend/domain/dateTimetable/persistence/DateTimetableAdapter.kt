@@ -7,7 +7,7 @@ import com.nodoubt.planitbackend.domain.dateTimetable.spi.DateTimetablePort
 import com.nodoubt.planitbackend.domain.dateTimetable.spi.vo.DateTimetableVO
 import com.nodoubt.planitbackend.global.annotation.Adapter
 import com.querydsl.jpa.impl.JPAQueryFactory
-import java.sql.Date
+import java.time.LocalDate
 
 @Adapter
 class DateTimetableAdapter (
@@ -16,7 +16,7 @@ class DateTimetableAdapter (
     private val dateTimetableMapper: DateTimetableMapper
 ) : DateTimetablePort {
 
-    override fun queryDateTimetableList(grade: Int, classNum: Int, monday: Date, friday: Date): List<DateTimetableVO> =
+    override fun queryDateTimetableList(grade: Int, classNum: Int, monday: LocalDate, friday: LocalDate): List<DateTimetableVO> =
         jpaQueryFactory
             .select(
                 QQueryDateTimetableVO(
