@@ -24,6 +24,7 @@ class DateTimetableMapper(
             period = it.period,
             weekOfDate = it.weekOfDate,
             subject = it.subject,
+            isChanged= it.isChanged,
             teacherId = it.teacherEntity.id
         )
     }
@@ -42,6 +43,7 @@ class DateTimetableMapper(
             period = domain.period,
             weekOfDate = domain.weekOfDate,
             subject = domain.subject,
+            isChanged = domain.isChanged,
             teacherEntity = teacherEntity
         )
     }

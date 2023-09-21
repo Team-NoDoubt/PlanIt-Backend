@@ -24,5 +24,7 @@ class DateTimetable(
 
     val subject: String,
 
+    val isChanged: Boolean,
+
     val teacherId: Long
 )

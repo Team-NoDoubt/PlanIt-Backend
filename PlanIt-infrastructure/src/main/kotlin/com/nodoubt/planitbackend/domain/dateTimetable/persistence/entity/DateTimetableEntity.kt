@@ -28,6 +28,8 @@ class DateTimetableEntity(
 
     subject: String,
 
+    isChanged: Boolean,
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "teacher_id", nullable = false)
     val teacherEntity: TeacherEntity
@@ -66,6 +68,11 @@ class DateTimetableEntity(
     @Column(columnDefinition = "VARCHAR(1)")
     @field:NotNull
     var weekOfDate = weekOfDate
+        protected set
+
+    @Column(columnDefinition = "VARCHAR(5)")
+    @field:NotNull
+    var isChanged = isChanged
         protected set
 
     @Column(columnDefinition = "VARCHAR(30)")
