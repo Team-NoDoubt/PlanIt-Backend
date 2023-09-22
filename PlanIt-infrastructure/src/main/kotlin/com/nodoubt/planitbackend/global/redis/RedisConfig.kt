@@ -8,8 +8,10 @@ import org.springframework.data.redis.connection.RedisPassword
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration
 import org.springframework.data.redis.connection.lettuce.LettuceClientConfiguration
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory
+import org.springframework.data.redis.repository.configuration.EnableRedisRepositories
 import java.time.Duration
 
+@EnableRedisRepositories
 @Configuration
 class RedisConfig(
 
@@ -19,7 +21,7 @@ class RedisConfig(
     @Value("\${redis.port}")
     private val redisPort: Int,
 
-    @Value("\${REDIS_PASSWORD}")
+    @Value("\${redis.redis_password}")
     private val redisPassword: String
 
 ) {
