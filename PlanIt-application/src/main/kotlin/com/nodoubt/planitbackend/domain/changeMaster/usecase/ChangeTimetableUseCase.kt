@@ -59,6 +59,5 @@ open class ChangeTimetableUseCase(
                 )
             }
         )
-        println(4)
     }
 }
