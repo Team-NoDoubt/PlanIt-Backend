@@ -32,6 +32,7 @@ class SecurityConfig(
 
             .antMatchers(HttpMethod.POST, "/post").authenticated()
             .antMatchers(HttpMethod.GET, "/replacement-class").authenticated()
+            .antMatchers(HttpMethod.GET, "/replacement-class/{replacement-class-id}").authenticated()
 
             .anyRequest().permitAll()
             .and().apply(FilterConfig(jwtParser, objectMapper))
