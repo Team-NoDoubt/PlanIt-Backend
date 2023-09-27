@@ -2,10 +2,14 @@ package com.nodoubt.planitbackend.domain.replacementClass.persistence
 
 import com.nodoubt.planitbackend.domain.changeMaster.domain.Status
 import com.nodoubt.planitbackend.domain.changeMaster.persistence.entity.QChangeMasterEntity.changeMasterEntity
+import com.nodoubt.planitbackend.domain.dateTimetable.persistence.entity.QDateTimetableEntity
+import com.nodoubt.planitbackend.domain.dateTimetable.persistence.vo.QQueryDateTimetableVO
 import com.nodoubt.planitbackend.domain.replacementClass.domain.ReplacementClass
 import com.nodoubt.planitbackend.domain.replacementClass.mapper.ReplacementClassMapper
 import com.nodoubt.planitbackend.domain.replacementClass.persistence.entity.QReplacementClassEntity.replacementClassEntity
+import com.nodoubt.planitbackend.domain.replacementClass.persistence.vo.QQueryReplacementClassDetailsVO
 import com.nodoubt.planitbackend.domain.replacementClass.persistence.vo.QQueryReplacementClassListVO
+import com.nodoubt.planitbackend.domain.replacementClass.persistence.vo.QueryReplacementClassDetailsVO
 import com.nodoubt.planitbackend.domain.replacementClass.persistence.vo.QueryReplacementClassListVO
 import com.nodoubt.planitbackend.domain.replacementClass.spi.ReplacementClassPort
 import com.nodoubt.planitbackend.domain.teacher.persistence.entity.QTeacherEntity.teacherEntity
@@ -60,6 +64,35 @@ class ReplacementClassPersistenceAdapter(
                 eqStatus(status)
             )
             .fetch()
+    }
+
+    override fun queryReplacementClassDetailsById(replacementClassId: Long): QueryReplacementClassDetailsVO? {
+        val requestTimetableEntity = QDateTimetableEntity("requestTimetableEntity")
+        val changeTimetableEntity = QDateTimetableEntity("changeTimetableEntity")
+        return queryFactory
+            .select(
+                QQueryReplacementClassDetailsVO(
+                    changeMasterEntity.reason,
+                    requestTimetableEntity.date,
+                    requestTimetableEntity.weekOfDate,
+                    requestTimetableEntity.period,
+                    requestTimetableEntity.grade,
+                    requestTimetableEntity.classNum,
+                    requestTimetableEntity.subject,
+                    changeTimetableEntity.date,
+                    changeTimetableEntity.weekOfDate,
+                    changeTimetableEntity.period,
+                    changeTimetableEntity.grade,
+                    changeTimetableEntity.classNum,
+                    changeTimetableEntity.subject
+                )
+            )
+            .from(replacementClassEntity)
+            .join(replacementClassEntity.changeMasterEntity, changeMasterEntity)
+            .join(replacementClassEntity.requestTimetableEntity, requestTimetableEntity)
+            .join(replacementClassEntity.changeTimetableEntity, changeTimetableEntity)
+            .where(replacementClassEntity.id.eq(replacementClassId))
+            .fetchOne()
     }
 
     fun eqStatus(status: Status?): BooleanExpression? =
