@@ -3,9 +3,11 @@ package com.nodoubt.planitbackend.domain.reinforecementClass.persistence.entity
 import com.nodoubt.planitbackend.domain.changeMaster.persistence.entity.ChangeMasterEntity
 import com.nodoubt.planitbackend.domain.dateTimetable.persistence.entity.DateTimetableEntity
 import com.nodoubt.planitbackend.domain.changeMaster.domain.Status
+import com.nodoubt.planitbackend.domain.semesterTimetable.persistence.entity.SemesterTimetableEntity
 import com.nodoubt.planitbackend.domain.teacher.persistence.entity.TeacherEntity
 import com.nodoubt.planitbackend.global.entity.BaseIDEntity
 import org.jetbrains.annotations.NotNull
+import java.time.LocalDate
 import javax.persistence.*
 
 @Entity
@@ -26,7 +28,9 @@ class ReinforcementClassEntity (
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "dataTimetable_id", nullable = false)
-    val dateTimetableEntity: DateTimetableEntity,
+    val dateTimetableEntity: SemesterTimetableEntity,
+
+    timetableDate: LocalDate,
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "teacher_id", nullable = false)
@@ -47,5 +51,9 @@ class ReinforcementClassEntity (
 
     @Column(columnDefinition = "VARCHAR(20)")
     var reasonRejected = reasonRejected
+        protected set
+
+    @field:NotNull
+    var timetableDate = timetableDate
         protected set
 }
