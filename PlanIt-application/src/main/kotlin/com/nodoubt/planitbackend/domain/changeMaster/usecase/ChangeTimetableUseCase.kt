@@ -39,7 +39,8 @@ open class ChangeTimetableUseCase(
                     changeMasterId = masterId,
                     status = Status.REQUESTING,
                     reinforcementPlan = it.reinforcementPlan,
-                    dateTimetableId = it.reinforcementClassId,
+                    semesterTimetableId = it.reinforcementClassId,
+                    timetableDate = it.reinforcementClassDate,
                     teacherId = it.reinforcementTeacherId
                 )
             }
@@ -51,7 +52,9 @@ open class ChangeTimetableUseCase(
                     changeMasterId = masterId,
                     status = Status.REQUESTING,
                     requestTimetableId = it.requestTimetableId,
+                    requestTimetableDate = it.requestClassDate,
                     changeTimetableId = it.changeTimetableId,
+                    changeTimetableDate = it.changeClassDate,
                     teacherId = it.replacementTeacherId
                 )
             }
