@@ -2,10 +2,10 @@ package com.nodoubt.planitbackend.domain.reinforecementClass.mapper
 
 import com.nodoubt.planitbackend.domain.changeMaster.exception.ChangeMasterNotFoundException
 import com.nodoubt.planitbackend.domain.changeMaster.persistence.ChangeMasterRepository
-import com.nodoubt.planitbackend.domain.dateTimetable.exception.DateTimetableNotFoundException
-import com.nodoubt.planitbackend.domain.dateTimetable.persistence.DateTimetableRepository
 import com.nodoubt.planitbackend.domain.reinforcementClass.domain.ReinforcementClass
 import com.nodoubt.planitbackend.domain.reinforecementClass.persistence.entity.ReinforcementClassEntity
+import com.nodoubt.planitbackend.domain.semesterTimetable.exception.SemesterTimetableNotFoundException
+import com.nodoubt.planitbackend.domain.semesterTimetable.persistence.SemesterTimetableRepository
 import com.nodoubt.planitbackend.domain.teacher.exception.TeacherNotFoundException
 import com.nodoubt.planitbackend.domain.teacher.persistence.TeacherRepository
 import com.nodoubt.planitbackend.global.entity.GenericMapper
@@ -13,20 +13,21 @@ import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Component
 
 @Component
-class ReinforcementClassMapper (
+class ReinforcementClassMapper(
     private val changeMasterRepository: ChangeMasterRepository,
-    private val dateTimetableRepository: DateTimetableRepository,
+    private val semesterTimetableRepository: SemesterTimetableRepository,
     private val teacherRepository: TeacherRepository
 ) : GenericMapper<ReinforcementClass, ReinforcementClassEntity> {
 
-    override fun toDomain(entity: ReinforcementClassEntity): ReinforcementClass = entity.let{
+    override fun toDomain(entity: ReinforcementClassEntity): ReinforcementClass = entity.let {
         ReinforcementClass(
             id = it.id,
             changeMasterId = it.changeMasterEntity.id,
             status = it.status,
             reinforcementPlan = it.reinforcementPlan,
             reasonRejected = it.reasonRejected,
-            dateTimetableId = it.dateTimetableEntity.id,
+            semesterTimetableId = it.semesterTimetableEntity.id,
+            timetableDate = it.timetableDate,
             teacherId = it.teacherEntity.id
         )
     }
@@ -36,8 +37,8 @@ class ReinforcementClassMapper (
         val changeMasterEntity = changeMasterRepository.findByIdOrNull(domain.changeMasterId)
             ?: throw ChangeMasterNotFoundException
 
-        val dateTimetableEntity = dateTimetableRepository.findByIdOrNull(domain.dateTimetableId)
-            ?: throw DateTimetableNotFoundException
+        val semesterTimetableEntity = semesterTimetableRepository.findByIdOrNull(domain.semesterTimetableId)
+            ?: throw SemesterTimetableNotFoundException
 
         val teacherEntity = teacherRepository.findByIdOrNull(domain.teacherId)
             ?: throw TeacherNotFoundException
@@ -48,7 +49,8 @@ class ReinforcementClassMapper (
             status = domain.status,
             reinforcementPlan = domain.reinforcementPlan,
             reasonRejected = domain.reasonRejected,
-            dateTimetableEntity = dateTimetableEntity,
+            semesterTimetableEntity = semesterTimetableEntity,
+            timetableDate = domain.timetableDate,
             teacherEntity = teacherEntity
         )
     }

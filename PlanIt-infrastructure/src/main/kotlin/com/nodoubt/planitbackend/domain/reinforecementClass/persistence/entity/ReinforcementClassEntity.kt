@@ -27,8 +27,8 @@ class ReinforcementClassEntity (
     reasonRejected: String?,
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "dataTimetable_id", nullable = false)
-    val dateTimetableEntity: SemesterTimetableEntity,
+    @JoinColumn(name = "semesterTimetable_id", nullable = false)
+    val semesterTimetableEntity: SemesterTimetableEntity,
 
     timetableDate: LocalDate,
 

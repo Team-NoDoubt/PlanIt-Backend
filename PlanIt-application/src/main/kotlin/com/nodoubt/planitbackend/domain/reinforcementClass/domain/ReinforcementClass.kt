@@ -2,6 +2,7 @@ package com.nodoubt.planitbackend.domain.reinforcementClass.domain
 
 import com.nodoubt.planitbackend.annotation.Aggregate
 import com.nodoubt.planitbackend.domain.changeMaster.domain.Status
+import java.time.LocalDate
 
 @Aggregate
 class ReinforcementClass (
@@ -16,7 +17,9 @@ class ReinforcementClass (
 
     val reasonRejected: String? = null,
 
-    val dateTimetableId: Long,
+    val semesterTimetableId: Long,
+
+    val timetableDate: LocalDate,
 
     val teacherId: Long
 )
