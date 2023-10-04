@@ -2,6 +2,7 @@ package com.nodoubt.planitbackend.domain.changeMaster.presentation.dto.request
 
 import com.nodoubt.planitbackend.domain.changeMaster.api.dto.request.ChangeTimetableRequest
 import com.nodoubt.planitbackend.global.exception.UnprocessableEntityException
+import java.time.LocalDate
 import javax.validation.constraints.NotBlank
 
 class WebChangeTimetableRequest(
@@ -23,6 +24,7 @@ class WebChangeTimetableRequest(
             reinforcementList = webChangeMasterRequest.reinforcementList.map {
                 com.nodoubt.planitbackend.domain.changeMaster.api.dto.request.ReinforcementClassList(
                     reinforcementClassId = it.reinforcementClassId,
+                    reinforcementClassDate = it.reinforcementClassDate,
                     reinforcementPlan = it.reinforcementPlan,
                     reinforcementTeacherId = it.reinforcementTeacherId
                 )
@@ -30,7 +32,9 @@ class WebChangeTimetableRequest(
             replacementList = webChangeMasterRequest.replacementList.map {
                 com.nodoubt.planitbackend.domain.changeMaster.api.dto.request.ReplacementClassList(
                     requestTimetableId = it.requestTimetableId,
+                    requestClassDate = it.requestClassDate,
                     changeTimetableId = it.changeTimetableId,
+                    changeClassDate = it.changeClassDate,
                     replacementTeacherId = it.replacementTeacherId
                 )
             }
@@ -39,12 +43,15 @@ class WebChangeTimetableRequest(
 
 data class ReinforcementClassList(
     val reinforcementClassId: Long,
+    val reinforcementClassDate: LocalDate,
     val reinforcementPlan: String,
     val reinforcementTeacherId: Long
 )
 
 data class ReplacementClassList(
     val requestTimetableId: Long,
+    val requestClassDate: LocalDate,
     val changeTimetableId: Long,
+    val changeClassDate: LocalDate,
     val replacementTeacherId: Long
 )

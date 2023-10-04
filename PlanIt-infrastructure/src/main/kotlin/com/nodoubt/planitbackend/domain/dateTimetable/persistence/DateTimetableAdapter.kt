@@ -2,8 +2,6 @@ package com.nodoubt.planitbackend.domain.dateTimetable.persistence
 
 import com.nodoubt.planitbackend.domain.changeMaster.domain.Status
 import com.nodoubt.planitbackend.domain.changeMaster.persistence.entity.QChangeMasterEntity.changeMasterEntity
-import com.nodoubt.planitbackend.domain.dateTimetable.mapper.DateTimetableMapper
-import com.nodoubt.planitbackend.domain.dateTimetable.persistence.entity.QDateTimetableEntity
 import com.nodoubt.planitbackend.domain.dateTimetable.persistence.entity.QDateTimetableEntity.dateTimetableEntity
 import com.nodoubt.planitbackend.domain.dateTimetable.persistence.vo.QQueryChangedTimetableVO
 import com.nodoubt.planitbackend.domain.dateTimetable.persistence.vo.QQueryDateTimetableVO
@@ -11,6 +9,7 @@ import com.nodoubt.planitbackend.domain.dateTimetable.spi.DateTimetablePort
 import com.nodoubt.planitbackend.domain.dateTimetable.spi.vo.ChangedTimetableVO
 import com.nodoubt.planitbackend.domain.dateTimetable.spi.vo.DateTimetableVO
 import com.nodoubt.planitbackend.domain.replacementClass.persistence.entity.QReplacementClassEntity.replacementClassEntity
+import com.nodoubt.planitbackend.domain.semesterTimetable.persistence.entity.QSemesterTimetableEntity
 import com.nodoubt.planitbackend.domain.teacher.persistence.entity.QTeacherEntity
 import com.nodoubt.planitbackend.global.annotation.Adapter
 import com.querydsl.jpa.impl.JPAQueryFactory
@@ -19,8 +18,6 @@ import java.time.LocalDate
 @Adapter
 class DateTimetableAdapter(
     private val jpaQueryFactory: JPAQueryFactory,
-    private val dateTimetableRepository: DateTimetableRepository,
-    private val dateTimetableMapper: DateTimetableMapper
 ) : DateTimetablePort {
 
     override fun queryDateTimetableList(
@@ -54,19 +51,19 @@ class DateTimetableAdapter(
         monday: LocalDate,
         friday: LocalDate
     ): List<ChangedTimetableVO> {
-        val requestTimetableEntity = QDateTimetableEntity("requestTimetableEntity")
-        val changeTimetableEntity = QDateTimetableEntity("changeTimetableEntity")
+        val requestTimetableEntity = QSemesterTimetableEntity("requestTimetableEntity")
+        val changeTimetableEntity = QSemesterTimetableEntity("changeTimetableEntity")
         val requestUser = QTeacherEntity("requestUser")
         val changeUser = QTeacherEntity("changeUser")
 
         return jpaQueryFactory
             .select(
                 QQueryChangedTimetableVO(
-                    requestTimetableEntity.date,
+                    replacementClassEntity.requestTimetableDate,
                     requestTimetableEntity.period,
                     changeTimetableEntity.subject,
                     requestUser.userEntity.name,
-                    changeTimetableEntity.date,
+                    replacementClassEntity.changeTimetableDate,
                     changeTimetableEntity.period,
                     requestTimetableEntity.subject,
                     changeUser.userEntity.name
@@ -81,8 +78,8 @@ class DateTimetableAdapter(
             .where(
                 changeMasterEntity.status.eq(Status.ACCEPT)
                     .and(
-                        (requestTimetableEntity.date.between(monday, friday))
-                            .or(changeTimetableEntity.date.between(monday, friday))
+                        (replacementClassEntity.requestTimetableDate.between(monday, friday))
+                            .or(replacementClassEntity.changeTimetableDate.between(monday, friday))
                     )
             )
             .fetch()

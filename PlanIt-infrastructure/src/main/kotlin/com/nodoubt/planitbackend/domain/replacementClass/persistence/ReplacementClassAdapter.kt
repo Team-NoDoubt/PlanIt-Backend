@@ -18,7 +18,9 @@ class ReplacementClassAdapter (
                     changeMasterId = it.changeMasterId,
                     status = it.status,
                     requestTimetableId = it.requestTimetableId,
+                    requestTimetableDate = it.requestTimetableDate,
                     changeTimetableId = it.changeTimetableId,
+                    changeTimetableDate = it.changeTimetableDate,
                     teacherId = it.teacherId
                 )
             )

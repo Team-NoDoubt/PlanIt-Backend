@@ -19,7 +19,8 @@ class ReinforcementClassAdapter (
                     status = it.status,
                     reinforcementPlan = it.reinforcementPlan,
                     reasonRejected = it.reasonRejected,
-                    dateTimetableId = it.dateTimetableId,
+                    semesterTimetableId = it.semesterTimetableId,
+                    timetableDate = it.timetableDate,
                     teacherId = it.teacherId
                 )
             )
