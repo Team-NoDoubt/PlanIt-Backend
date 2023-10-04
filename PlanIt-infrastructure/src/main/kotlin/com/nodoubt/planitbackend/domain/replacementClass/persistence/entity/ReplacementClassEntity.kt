@@ -3,9 +3,11 @@ package com.nodoubt.planitbackend.domain.replacementClass.persistence.entity
 import com.nodoubt.planitbackend.domain.changeMaster.persistence.entity.ChangeMasterEntity
 import com.nodoubt.planitbackend.domain.dateTimetable.persistence.entity.DateTimetableEntity
 import com.nodoubt.planitbackend.domain.changeMaster.domain.Status
+import com.nodoubt.planitbackend.domain.semesterTimetable.persistence.entity.SemesterTimetableEntity
 import com.nodoubt.planitbackend.domain.teacher.persistence.entity.TeacherEntity
 import com.nodoubt.planitbackend.global.entity.BaseIDEntity
 import org.jetbrains.annotations.NotNull
+import java.time.LocalDate
 import javax.persistence.*
 
 @Entity
@@ -23,15 +25,20 @@ class ReplacementClassEntity (
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "requestTimetable_id", nullable = false)
-    val requestTimetableEntity: DateTimetableEntity,
+    val requestTimetableEntity: SemesterTimetableEntity,
+
+    requestTimetableDate: LocalDate,
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "changeTimetable_id", nullable = false)
-    val changeTimetableEntity: DateTimetableEntity,
+    val changeTimetableEntity: SemesterTimetableEntity,
+
+    changeTimetableDate: LocalDate,
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "teacher_id", nullable = false)
     val teacherEntity: TeacherEntity
+
 
 ) : BaseIDEntity(id) {
 
@@ -43,5 +50,13 @@ class ReplacementClassEntity (
 
     @Column(columnDefinition = "VARCHAR(20)")
     var reasonRejected = reasonRejected
+        protected set
+
+    @field:NotNull
+    var requestTimetableDate = requestTimetableDate
+        protected set
+
+    @field:NotNull
+    var changeTimetableDate = changeTimetableDate
         protected set
 }

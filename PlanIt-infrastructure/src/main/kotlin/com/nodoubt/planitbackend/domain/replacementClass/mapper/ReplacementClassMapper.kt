@@ -3,9 +3,9 @@ package com.nodoubt.planitbackend.domain.replacementClass.mapper
 import com.nodoubt.planitbackend.domain.changeMaster.exception.ChangeMasterNotFoundException
 import com.nodoubt.planitbackend.domain.changeMaster.persistence.ChangeMasterRepository
 import com.nodoubt.planitbackend.domain.dateTimetable.exception.DateTimetableNotFoundException
-import com.nodoubt.planitbackend.domain.dateTimetable.persistence.DateTimetableRepository
 import com.nodoubt.planitbackend.domain.replacementClass.domain.ReplacementClass
 import com.nodoubt.planitbackend.domain.replacementClass.persistence.entity.ReplacementClassEntity
+import com.nodoubt.planitbackend.domain.semesterTimetable.persistence.SemesterTimetableRepository
 import com.nodoubt.planitbackend.domain.teacher.exception.TeacherNotFoundException
 import com.nodoubt.planitbackend.domain.teacher.persistence.TeacherRepository
 import com.nodoubt.planitbackend.global.entity.GenericMapper
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component
 @Component
 class ReplacementClassMapper  (
     private val changeMasterRepository: ChangeMasterRepository,
-    private val dateTimetableRepository: DateTimetableRepository,
+    private val semesterTimetableRepository: SemesterTimetableRepository,
     private val teacherRepository: TeacherRepository
 ) : GenericMapper<ReplacementClass, ReplacementClassEntity> {
 
@@ -26,6 +26,8 @@ class ReplacementClassMapper  (
             status = it.status,
             reasonRejected = it.reasonRejected,
             requestTimetableId = it.requestTimetableEntity.id,
+            requestTimetableDate = it.requestTimetableDate,
+            changeTimetableDate = it.changeTimetableDate,
             changeTimetableId = it.requestTimetableEntity.id,
             teacherId = it.teacherEntity.id
         )
@@ -36,10 +38,10 @@ class ReplacementClassMapper  (
         val changeMasterEntity = changeMasterRepository.findByIdOrNull(domain.changeMasterId)
             ?: throw ChangeMasterNotFoundException
 
-        val requestTimetableEntity = dateTimetableRepository.findByIdOrNull(domain.requestTimetableId)
+        val requestTimetableEntity = semesterTimetableRepository.findByIdOrNull(domain.requestTimetableId)
             ?: throw DateTimetableNotFoundException
 
-        val changeTimetableEntity = dateTimetableRepository.findByIdOrNull(domain.changeTimetableId)
+        val changeTimetableEntity = semesterTimetableRepository.findByIdOrNull(domain.changeTimetableId)
             ?: throw DateTimetableNotFoundException
 
         val teacherEntity = teacherRepository.findByIdOrNull(domain.teacherId)
@@ -51,7 +53,9 @@ class ReplacementClassMapper  (
             status = domain.status,
             reasonRejected = domain.reasonRejected,
             requestTimetableEntity = requestTimetableEntity,
+            requestTimetableDate = domain.requestTimetableDate,
             changeTimetableEntity = changeTimetableEntity,
+            changeTimetableDate = domain.changeTimetableDate,
             teacherEntity = teacherEntity
         )
     }
