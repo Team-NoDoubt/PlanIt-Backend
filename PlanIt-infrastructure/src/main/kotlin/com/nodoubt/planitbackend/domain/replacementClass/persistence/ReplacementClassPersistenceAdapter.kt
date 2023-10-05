@@ -12,6 +12,7 @@ import com.nodoubt.planitbackend.domain.replacementClass.persistence.vo.QQueryRe
 import com.nodoubt.planitbackend.domain.replacementClass.persistence.vo.QueryReplacementClassDetailsVO
 import com.nodoubt.planitbackend.domain.replacementClass.persistence.vo.QueryReplacementClassListVO
 import com.nodoubt.planitbackend.domain.replacementClass.spi.ReplacementClassPort
+import com.nodoubt.planitbackend.domain.semesterTimetable.persistence.entity.QSemesterTimetableEntity
 import com.nodoubt.planitbackend.domain.teacher.persistence.entity.QTeacherEntity.teacherEntity
 import com.nodoubt.planitbackend.domain.user.persistence.entity.QUserEntity.userEntity
 import com.nodoubt.planitbackend.global.annotation.Adapter
@@ -67,19 +68,19 @@ class ReplacementClassPersistenceAdapter(
     }
 
     override fun queryReplacementClassDetailsById(replacementClassId: Long): QueryReplacementClassDetailsVO? {
-        val requestTimetableEntity = QDateTimetableEntity("requestTimetableEntity")
-        val changeTimetableEntity = QDateTimetableEntity("changeTimetableEntity")
+        val requestTimetableEntity = QSemesterTimetableEntity("requestTimetableEntity")
+        val changeTimetableEntity = QSemesterTimetableEntity("changeTimetableEntity")
         return queryFactory
             .select(
                 QQueryReplacementClassDetailsVO(
                     changeMasterEntity.reason,
-                    requestTimetableEntity.date,
+                    replacementClassEntity.requestTimetableDate,
                     requestTimetableEntity.weekOfDate,
                     requestTimetableEntity.period,
                     requestTimetableEntity.grade,
                     requestTimetableEntity.classNum,
                     requestTimetableEntity.subject,
-                    changeTimetableEntity.date,
+                    replacementClassEntity.changeTimetableDate,
                     changeTimetableEntity.weekOfDate,
                     changeTimetableEntity.period,
                     changeTimetableEntity.grade,
