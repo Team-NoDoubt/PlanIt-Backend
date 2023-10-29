@@ -29,6 +29,6 @@ class ReplacementClassWebAdapter(
     fun queryReplacementClassDetails(
         @PathVariable("replacement-class-id") replacementClassId: Long
     ): QueryReplacementClassDetailsResponse {
-        return queryReplacementClassDetailsPort.execute(replacementClassId);
+        return queryReplacementClassDetailsPort.execute(replacementClassId)
     }
 }

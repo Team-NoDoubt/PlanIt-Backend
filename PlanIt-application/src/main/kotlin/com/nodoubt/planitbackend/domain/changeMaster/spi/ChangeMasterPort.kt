@@ -1,3 +1,3 @@
 package com.nodoubt.planitbackend.domain.changeMaster.spi
 
-interface ChangeMasterPort : CommandChangeMasterPort
+interface ChangeMasterPort : CommandChangeMasterPort, QueryChangedMasterPort

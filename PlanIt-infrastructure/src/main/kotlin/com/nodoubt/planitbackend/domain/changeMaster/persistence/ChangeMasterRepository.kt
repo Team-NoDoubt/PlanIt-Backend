@@ -4,4 +4,5 @@ import com.nodoubt.planitbackend.domain.changeMaster.persistence.entity.ChangeMa
 import org.springframework.data.repository.CrudRepository
 
 interface ChangeMasterRepository : CrudRepository<ChangeMasterEntity, Long> {
+    fun findAllByTeacherEntityIdOrderByDateDesc(teacherId: Long): List<ChangeMasterEntity>
 }
