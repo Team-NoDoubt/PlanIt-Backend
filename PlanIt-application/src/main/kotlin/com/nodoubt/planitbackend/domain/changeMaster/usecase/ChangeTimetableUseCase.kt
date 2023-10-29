@@ -2,7 +2,7 @@ package com.nodoubt.planitbackend.domain.changeMaster.usecase
 
 import com.nodoubt.planitbackend.annotation.UseCase
 import com.nodoubt.planitbackend.domain.changeMaster.api.ChangeTimetablePort
-import com.nodoubt.planitbackend.domain.changeMaster.api.dto.request.ChangeTimetableRequest
+import com.nodoubt.planitbackend.domain.changeMaster.api.dto.request.DomainChangeTimetableRequest
 import com.nodoubt.planitbackend.domain.changeMaster.domain.ChangeMaster
 import com.nodoubt.planitbackend.domain.changeMaster.spi.CommandChangeMasterPort
 import com.nodoubt.planitbackend.domain.reinforcementClass.domain.ReinforcementClass
@@ -20,7 +20,7 @@ open class ChangeTimetableUseCase(
     private val commandReinforcementPort: CommandReinforcementPort,
     private val commandReplacementPort: CommandReplacementPort
 ) : ChangeTimetablePort {
-    override fun execute(request: ChangeTimetableRequest) {
+    override fun execute(request: DomainChangeTimetableRequest) {
         val date = LocalDate.now()
         val user = userSecurityPort.getCurrentUser()
 

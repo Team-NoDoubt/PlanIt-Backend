@@ -2,7 +2,7 @@ package com.nodoubt.planitbackend.domain.changeMaster.api.dto.request
 
 import java.time.LocalDate
 
-class ChangeTimetableRequest (
+class DomainChangeTimetableRequest (
     val reason: String,
     val reinforcementList: List<ReinforcementClassList>,
     val replacementList: List<ReplacementClassList>
