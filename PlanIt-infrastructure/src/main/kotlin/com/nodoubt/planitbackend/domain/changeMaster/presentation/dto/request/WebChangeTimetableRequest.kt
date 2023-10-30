@@ -1,6 +1,6 @@
 package com.nodoubt.planitbackend.domain.changeMaster.presentation.dto.request
 
-import com.nodoubt.planitbackend.domain.changeMaster.api.dto.request.ChangeTimetableRequest
+import com.nodoubt.planitbackend.domain.changeMaster.api.dto.request.DomainChangeTimetableRequest
 import com.nodoubt.planitbackend.global.exception.UnprocessableEntityException
 import java.time.LocalDate
 import javax.validation.constraints.NotBlank
@@ -18,8 +18,8 @@ class WebChangeTimetableRequest(
         }
     }
 
-    fun toDomainRequest(webChangeMasterRequest: WebChangeTimetableRequest): ChangeTimetableRequest =
-        ChangeTimetableRequest(
+    fun toDomainRequest(webChangeMasterRequest: WebChangeTimetableRequest): DomainChangeTimetableRequest =
+        DomainChangeTimetableRequest(
             reason = webChangeMasterRequest.reason,
             reinforcementList = webChangeMasterRequest.reinforcementList.map {
                 com.nodoubt.planitbackend.domain.changeMaster.api.dto.request.ReinforcementClassList(
