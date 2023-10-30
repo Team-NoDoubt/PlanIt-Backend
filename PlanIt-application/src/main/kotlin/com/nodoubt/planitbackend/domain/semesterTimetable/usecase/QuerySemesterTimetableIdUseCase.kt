@@ -2,7 +2,6 @@ package com.nodoubt.planitbackend.domain.semesterTimetable.usecase
 
 import com.nodoubt.planitbackend.annotation.UseCase
 import com.nodoubt.planitbackend.domain.semesterTimetable.api.QuerySemesterTimetableIdPort
-import com.nodoubt.planitbackend.domain.semesterTimetable.api.dto.request.DomainQuerySemesterTimetableIdRequest
 import com.nodoubt.planitbackend.domain.semesterTimetable.api.dto.response.QuerySemesterTimetableIdResponse
 import com.nodoubt.planitbackend.domain.semesterTimetable.spi.QuerySemesterTimetablePort
 
@@ -11,12 +10,13 @@ open class QuerySemesterTimetableIdUseCase(
     private val querySemesterTimetablePort: QuerySemesterTimetablePort
 ) : QuerySemesterTimetableIdPort {
 
-    override fun execute(request: DomainQuerySemesterTimetableIdRequest): QuerySemesterTimetableIdResponse {
+    override fun execute(weekOfDate: Int, grade: Int, classNum: Int, period: Int): QuerySemesterTimetableIdResponse {
 
-        val semesterEntity = querySemesterTimetablePort.querySemesterTimetableIdByWeekOfDateAndPeriodAndGradeAndClassNum(request.weekOfDate, request.grade, request.classNum, request.period)
+        val semesterEntity = querySemesterTimetablePort.querySemesterTimetableIdByWeekOfDateAndPeriodAndGradeAndClassNum(weekOfDate, grade, classNum, period)
 
         return QuerySemesterTimetableIdResponse(
-            timetableId = semesterEntity.id
+            timetableId = semesterEntity.id,
+            subject = semesterEntity.subject
         )
     }
 }
