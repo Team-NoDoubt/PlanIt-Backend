@@ -61,11 +61,11 @@ class DateTimetableAdapter(
                 QQueryChangedTimetableVO(
                     replacementClassEntity.requestTimetableDate,
                     requestTimetableEntity.period,
-                    changeTimetableEntity.subject,
+                    requestTimetableEntity.subject,
                     requestUser.userEntity.name,
                     replacementClassEntity.changeTimetableDate,
                     changeTimetableEntity.period,
-                    requestTimetableEntity.subject,
+                    changeTimetableEntity.subject,
                     changeUser.userEntity.name
                 )
             )
