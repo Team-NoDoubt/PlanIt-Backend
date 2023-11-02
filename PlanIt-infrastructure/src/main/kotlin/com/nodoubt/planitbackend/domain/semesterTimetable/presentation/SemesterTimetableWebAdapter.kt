@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
-@RequestMapping("/semester-timetable")
+@RequestMapping("/timetables/semester")
 @RestController
 class SemesterTimetableWebAdapter(
     private val querySemesterTimetableIdPort: QuerySemesterTimetableIdPort
