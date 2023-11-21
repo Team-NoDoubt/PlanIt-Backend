@@ -1,4 +1,4 @@
-package com.nodoubt.planitbackend.domain.reinforcementClass.domain
+package com.nodoubt.planitbackend.domain.changeMaster.domain
 
 import com.nodoubt.planitbackend.annotation.Aggregate
 import com.nodoubt.planitbackend.domain.changeMaster.domain.Status

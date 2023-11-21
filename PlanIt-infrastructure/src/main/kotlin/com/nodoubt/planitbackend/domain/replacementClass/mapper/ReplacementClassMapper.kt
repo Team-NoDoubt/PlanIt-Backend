@@ -3,7 +3,7 @@ package com.nodoubt.planitbackend.domain.replacementClass.mapper
 import com.nodoubt.planitbackend.domain.changeMaster.exception.ChangeMasterNotFoundException
 import com.nodoubt.planitbackend.domain.changeMaster.persistence.ChangeMasterRepository
 import com.nodoubt.planitbackend.domain.dateTimetable.exception.DateTimetableNotFoundException
-import com.nodoubt.planitbackend.domain.replacementClass.domain.ReplacementClass
+import com.nodoubt.planitbackend.domain.changeMaster.domain.ReplacementClass
 import com.nodoubt.planitbackend.domain.replacementClass.persistence.entity.ReplacementClassEntity
 import com.nodoubt.planitbackend.domain.semesterTimetable.persistence.SemesterTimetableRepository
 import com.nodoubt.planitbackend.domain.teacher.exception.TeacherNotFoundException

@@ -1,4 +1,4 @@
-package com.nodoubt.planitbackend.domain.changeMaster.spi
+package com.nodoubt.planitbackend.domain.changeMaster.spi.changeMasterSpi
 
 import com.nodoubt.planitbackend.domain.changeMaster.domain.ChangeMaster
 

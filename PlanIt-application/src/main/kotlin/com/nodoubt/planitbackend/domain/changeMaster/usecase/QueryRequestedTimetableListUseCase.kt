@@ -4,7 +4,7 @@ import com.nodoubt.planitbackend.annotation.UseCase
 import com.nodoubt.planitbackend.domain.changeMaster.api.QueryRequestedTimetableListPort
 import com.nodoubt.planitbackend.domain.changeMaster.api.dto.response.QueryRequestedTimetableListResponse
 import com.nodoubt.planitbackend.domain.changeMaster.api.dto.response.RequestedTimetableList
-import com.nodoubt.planitbackend.domain.changeMaster.spi.QueryChangedMasterPort
+import com.nodoubt.planitbackend.domain.changeMaster.spi.changeMasterSpi.QueryChangedMasterPort
 import com.nodoubt.planitbackend.domain.user.spi.UserSecurityPort
 
 @UseCase

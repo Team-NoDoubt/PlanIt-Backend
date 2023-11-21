@@ -1,4 +1,4 @@
-package com.nodoubt.planitbackend.domain.replacementClass.spi.vo
+package com.nodoubt.planitbackend.domain.changeMaster.spi.replacementClassSpi.vo
 
 import com.nodoubt.planitbackend.domain.changeMaster.domain.Status
 import java.time.LocalDate

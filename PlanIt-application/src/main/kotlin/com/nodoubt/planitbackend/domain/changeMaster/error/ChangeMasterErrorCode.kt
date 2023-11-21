@@ -7,5 +7,6 @@ enum class ChangeMasterErrorCode (
     override val message: String
 ) : ErrorProperty {
 
-    CHANGE_MASTER_NOT_FOUND(404, "Change Master Not Found")
+    CHANGE_MASTER_NOT_FOUND(404, "Change Master Not Found"),
+    REPLACEMENT_CLASS_NOT_FOUND(404, "Replacement Class Not Found")
 }

@@ -1,10 +1,10 @@
-package com.nodoubt.planitbackend.domain.replacementClass.usecase
+package com.nodoubt.planitbackend.domain.changeMaster.usecase
 
 import com.nodoubt.planitbackend.annotation.UseCase
 import com.nodoubt.planitbackend.domain.changeMaster.domain.Status
-import com.nodoubt.planitbackend.domain.replacementClass.api.QueryReplacementClassListPort
-import com.nodoubt.planitbackend.domain.replacementClass.api.dto.response.QueryReplacementClassListResponse
-import com.nodoubt.planitbackend.domain.replacementClass.spi.QueryReplacementClassPort
+import com.nodoubt.planitbackend.domain.changeMaster.api.QueryReplacementClassListPort
+import com.nodoubt.planitbackend.domain.changeMaster.api.dto.response.QueryReplacementClassListResponse
+import com.nodoubt.planitbackend.domain.changeMaster.spi.replacementClassSpi.QueryReplacementClassPort
 import com.nodoubt.planitbackend.domain.user.spi.UserSecurityPort
 
 @UseCase

@@ -1,11 +1,11 @@
-package com.nodoubt.planitbackend.domain.replacementClass.usecase
+package com.nodoubt.planitbackend.domain.changeMaster.usecase
 
 import com.nodoubt.planitbackend.annotation.UseCase
-import com.nodoubt.planitbackend.domain.replacementClass.api.QueryReplacementClassDetailsPort
-import com.nodoubt.planitbackend.domain.replacementClass.api.dto.response.QueryReplacementClassDetailsResponse
-import com.nodoubt.planitbackend.domain.replacementClass.api.dto.response.QueryReplacementClassDetailsResponse.TimetableInfo
-import com.nodoubt.planitbackend.domain.replacementClass.exception.ReplacementClassNotFoundException
-import com.nodoubt.planitbackend.domain.replacementClass.spi.QueryReplacementClassPort
+import com.nodoubt.planitbackend.domain.changeMaster.api.QueryReplacementClassDetailsPort
+import com.nodoubt.planitbackend.domain.changeMaster.api.dto.response.QueryReplacementClassDetailsResponse
+import com.nodoubt.planitbackend.domain.changeMaster.api.dto.response.QueryReplacementClassDetailsResponse.TimetableInfo
+import com.nodoubt.planitbackend.domain.changeMaster.exception.ReplacementClassNotFoundException
+import com.nodoubt.planitbackend.domain.changeMaster.spi.replacementClassSpi.QueryReplacementClassPort
 
 @UseCase
 open class QueryReplacementClassDetailsUseCase(
