@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*
 import javax.validation.Valid
 
 @RestController
-@RequestMapping("/timetables")
+@RequestMapping("/change-master")
 class ChangeMasterWebAdapter(
     private val changeTimetablePort: ChangeTimetablePort,
     private val queryRequestedTimetableListPort: QueryRequestedTimetableListPort,
