@@ -1,4 +1,4 @@
-package com.nodoubt.planitbackend.domain.replacementClass.api.dto.response
+package com.nodoubt.planitbackend.domain.changeMaster.api.dto.response
 
 import java.time.LocalDate
 

@@ -1,6 +1,6 @@
 package com.nodoubt.planitbackend.domain.replacementClass.persistence.vo
 
-import com.nodoubt.planitbackend.domain.replacementClass.spi.vo.ReplacementClassDetailsVO
+import com.nodoubt.planitbackend.domain.changeMaster.spi.replacementClassSpi.vo.ReplacementClassDetailsVO
 import com.querydsl.core.annotations.QueryProjection
 import java.time.LocalDate
 

@@ -4,12 +4,12 @@ import com.nodoubt.planitbackend.annotation.UseCase
 import com.nodoubt.planitbackend.domain.changeMaster.api.ChangeTimetablePort
 import com.nodoubt.planitbackend.domain.changeMaster.api.dto.request.DomainChangeTimetableRequest
 import com.nodoubt.planitbackend.domain.changeMaster.domain.ChangeMaster
-import com.nodoubt.planitbackend.domain.changeMaster.spi.CommandChangeMasterPort
-import com.nodoubt.planitbackend.domain.reinforcementClass.domain.ReinforcementClass
+import com.nodoubt.planitbackend.domain.changeMaster.spi.changeMasterSpi.CommandChangeMasterPort
+import com.nodoubt.planitbackend.domain.changeMaster.domain.ReinforcementClass
 import com.nodoubt.planitbackend.domain.changeMaster.domain.Status
-import com.nodoubt.planitbackend.domain.reinforcementClass.spi.CommandReinforcementPort
-import com.nodoubt.planitbackend.domain.replacementClass.domain.ReplacementClass
-import com.nodoubt.planitbackend.domain.replacementClass.spi.CommandReplacementPort
+import com.nodoubt.planitbackend.domain.changeMaster.spi.reinforcementClassSpi.CommandReinforcementPort
+import com.nodoubt.planitbackend.domain.changeMaster.domain.ReplacementClass
+import com.nodoubt.planitbackend.domain.changeMaster.spi.replacementClassSpi.CommandReplacementPort
 import com.nodoubt.planitbackend.domain.user.spi.UserSecurityPort
 import java.time.LocalDate
 

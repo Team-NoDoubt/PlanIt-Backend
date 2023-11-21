@@ -3,7 +3,7 @@ package com.nodoubt.planitbackend.domain.changeMaster.persistence
 import com.nodoubt.planitbackend.domain.changeMaster.domain.ChangeMaster
 import com.nodoubt.planitbackend.domain.changeMaster.mapper.ChangeMasterMapper
 import com.nodoubt.planitbackend.domain.changeMaster.persistence.entity.ChangeMasterEntity
-import com.nodoubt.planitbackend.domain.changeMaster.spi.ChangeMasterPort
+import com.nodoubt.planitbackend.domain.changeMaster.spi.changeMasterSpi.ChangeMasterPort
 import com.nodoubt.planitbackend.global.annotation.Adapter
 
 @Adapter

@@ -1,0 +1,6 @@
+package com.nodoubt.planitbackend.domain.changeMaster.spi.replacementClassSpi
+
+import com.nodoubt.planitbackend.domain.changeMaster.spi.replacementClassSpi.CommandReplacementPort
+import com.nodoubt.planitbackend.domain.changeMaster.spi.replacementClassSpi.QueryReplacementClassPort
+
+interface ReplacementClassPort : CommandReplacementPort, QueryReplacementClassPort

@@ -2,7 +2,7 @@ package com.nodoubt.planitbackend.domain.reinforecementClass.mapper
 
 import com.nodoubt.planitbackend.domain.changeMaster.exception.ChangeMasterNotFoundException
 import com.nodoubt.planitbackend.domain.changeMaster.persistence.ChangeMasterRepository
-import com.nodoubt.planitbackend.domain.reinforcementClass.domain.ReinforcementClass
+import com.nodoubt.planitbackend.domain.changeMaster.domain.ReinforcementClass
 import com.nodoubt.planitbackend.domain.reinforecementClass.persistence.entity.ReinforcementClassEntity
 import com.nodoubt.planitbackend.domain.semesterTimetable.exception.SemesterTimetableNotFoundException
 import com.nodoubt.planitbackend.domain.semesterTimetable.persistence.SemesterTimetableRepository

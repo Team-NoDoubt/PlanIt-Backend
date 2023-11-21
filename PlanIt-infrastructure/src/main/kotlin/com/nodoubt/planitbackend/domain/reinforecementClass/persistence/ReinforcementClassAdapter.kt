@@ -1,7 +1,7 @@
 package com.nodoubt.planitbackend.domain.reinforecementClass.persistence
 
-import com.nodoubt.planitbackend.domain.reinforcementClass.domain.ReinforcementClass
-import com.nodoubt.planitbackend.domain.reinforcementClass.spi.ReinforcementClassPort
+import com.nodoubt.planitbackend.domain.changeMaster.domain.ReinforcementClass
+import com.nodoubt.planitbackend.domain.changeMaster.spi.reinforcementClassSpi.ReinforcementClassPort
 import com.nodoubt.planitbackend.domain.reinforecementClass.mapper.ReinforcementClassMapper
 import com.nodoubt.planitbackend.global.annotation.Adapter
 

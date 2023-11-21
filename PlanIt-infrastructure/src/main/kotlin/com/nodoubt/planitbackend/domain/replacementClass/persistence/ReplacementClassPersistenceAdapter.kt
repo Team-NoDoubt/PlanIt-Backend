@@ -2,16 +2,14 @@ package com.nodoubt.planitbackend.domain.replacementClass.persistence
 
 import com.nodoubt.planitbackend.domain.changeMaster.domain.Status
 import com.nodoubt.planitbackend.domain.changeMaster.persistence.entity.QChangeMasterEntity.changeMasterEntity
-import com.nodoubt.planitbackend.domain.dateTimetable.persistence.entity.QDateTimetableEntity
-import com.nodoubt.planitbackend.domain.dateTimetable.persistence.vo.QQueryDateTimetableVO
-import com.nodoubt.planitbackend.domain.replacementClass.domain.ReplacementClass
+import com.nodoubt.planitbackend.domain.changeMaster.domain.ReplacementClass
 import com.nodoubt.planitbackend.domain.replacementClass.mapper.ReplacementClassMapper
 import com.nodoubt.planitbackend.domain.replacementClass.persistence.entity.QReplacementClassEntity.replacementClassEntity
 import com.nodoubt.planitbackend.domain.replacementClass.persistence.vo.QQueryReplacementClassDetailsVO
 import com.nodoubt.planitbackend.domain.replacementClass.persistence.vo.QQueryReplacementClassListVO
 import com.nodoubt.planitbackend.domain.replacementClass.persistence.vo.QueryReplacementClassDetailsVO
 import com.nodoubt.planitbackend.domain.replacementClass.persistence.vo.QueryReplacementClassListVO
-import com.nodoubt.planitbackend.domain.replacementClass.spi.ReplacementClassPort
+import com.nodoubt.planitbackend.domain.changeMaster.spi.replacementClassSpi.ReplacementClassPort
 import com.nodoubt.planitbackend.domain.semesterTimetable.persistence.entity.QSemesterTimetableEntity
 import com.nodoubt.planitbackend.domain.teacher.persistence.entity.QTeacherEntity.teacherEntity
 import com.nodoubt.planitbackend.domain.user.persistence.entity.QUserEntity.userEntity
