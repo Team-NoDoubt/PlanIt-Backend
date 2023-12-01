@@ -1,11 +1,9 @@
 package com.nodoubt.planitbackend.domain.changeMaster.presentation
 
-import com.nodoubt.planitbackend.domain.changeMaster.api.ChangeTimetablePort
-import com.nodoubt.planitbackend.domain.changeMaster.api.QueryReplacementClassDetailsPort
-import com.nodoubt.planitbackend.domain.changeMaster.api.QueryReplacementClassListPort
-import com.nodoubt.planitbackend.domain.changeMaster.api.QueryRequestedTimetableListPort
+import com.nodoubt.planitbackend.domain.changeMaster.api.*
 import com.nodoubt.planitbackend.domain.changeMaster.api.dto.response.QueryReplacementClassDetailsResponse
 import com.nodoubt.planitbackend.domain.changeMaster.api.dto.response.QueryReplacementClassListResponse
+import com.nodoubt.planitbackend.domain.changeMaster.api.dto.response.QueryRequestedTimetableDetailsResponse
 import com.nodoubt.planitbackend.domain.changeMaster.api.dto.response.QueryRequestedTimetableListResponse
 import com.nodoubt.planitbackend.domain.changeMaster.domain.Status
 import com.nodoubt.planitbackend.domain.changeMaster.presentation.dto.request.WebChangeTimetableRequest
@@ -19,7 +17,8 @@ class ChangeMasterWebAdapter(
     private val changeTimetablePort: ChangeTimetablePort,
     private val queryRequestedTimetableListPort: QueryRequestedTimetableListPort,
     private val queryReplacementClassListPort: QueryReplacementClassListPort,
-    private val queryReplacementClassDetailsPort: QueryReplacementClassDetailsPort
+    private val queryReplacementClassDetailsPort: QueryReplacementClassDetailsPort,
+    private val queryRequestedTimetableDetailsPort: QueryRequestedTimetableDetailsPort
 ) {
 
     @ResponseStatus(HttpStatus.CREATED)
@@ -45,4 +44,9 @@ class ChangeMasterWebAdapter(
     ): QueryReplacementClassDetailsResponse {
         return queryReplacementClassDetailsPort.execute(replacementClassId)
     }
+
+    @GetMapping("/requested/{change-master-id}")
+    fun queryRequestedTimetableDetails(@PathVariable("change-master-id") changeMasterId: Long): QueryRequestedTimetableDetailsResponse =
+        queryRequestedTimetableDetailsPort.execute(changeMasterId)
+
 }
